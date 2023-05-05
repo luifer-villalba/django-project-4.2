@@ -1,0 +1,12 @@
+{% extends 'base.html' %}
+
+{% block content %}
+<h1>Listado de Reservas</h1>
+<ul>
+{% for reserva in reservas %}
+  <li>Reserva #{{ reserva.id }}{% if reserva.hotel %} en {{ reserva.hotel.name }} ({{ reserva.hotel.city }}){% endif %} - {{ reserva.check_in_date }} a {{ reserva.check_out_date }}</li>
+{% empty %}
+  <li>No hay reservas registradas.</li>
+{% endfor %}
+</ul>
+{% endblock %}
